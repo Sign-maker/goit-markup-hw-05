@@ -618,7 +618,7 @@ body {
 .modal-descr {
   font-weight: 500;
   line-height: 1.5;
-  letter-spacing: 0.02px;
+  letter-spacing: 0.02em;
   text-align: center;
   color: var(--dark);
   margin-bottom: 16px;
