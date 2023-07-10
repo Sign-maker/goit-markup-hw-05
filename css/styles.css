@@ -727,7 +727,7 @@ body {
 }
 
 .modal-checkbox-input:checked + .modal-label .modal-checkbox-span {
-  background-color: var(--primary-brand);
+  background-color: var(--pressed-state);
   border-style: none;
   fill: var(--light);
 }
