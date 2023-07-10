@@ -724,6 +724,7 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin-right: 8px;
 }
 
 .modal-checkbox-input:checked + .modal-label .modal-checkbox-span {
@@ -732,6 +733,9 @@ body {
   fill: var(--light);
 }
 
+.modal-checkbox-input:focus + .modal-label .modal-checkbox-span {
+  border: 1px solid var(--primary-brand);
+}
 /* .modal-checkbox-icon {
   fill: inherit;
 } */
