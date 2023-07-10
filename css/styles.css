@@ -34,7 +34,7 @@ button {
 }
 input {
   font-family: inherit;
-  outline: none;
+  /* outline: none; */
   padding: 0;
 }
 
@@ -104,7 +104,7 @@ body {
 .subscribe-btn {
   color: var(--white-background);
   background-color: var(--primary-brand);
-  border-style: none;
+  border: none;
   border-radius: 4px;
   transition: background-color var(--my-transition-duration)
     var(--my-transition-timing-function);
@@ -497,45 +497,36 @@ body {
   background-color: var(--success);
 }
 
-.subscribe-form {
+.subscribe-container {
   margin-left: 80px;
 }
-
-.subscribe-label {
-  color: var(--white-background);
-  font-weight: 500;
-}
-
-.subscribe-form-wrapper {
-  margin-top: 16px;
+.subscribe-form {
   display: flex;
   gap: 24px;
 }
 
+.subscribe-descr {
+  color: var(--white-background);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
 .subscribe-input {
-  background-color: var(--dark);
+  background-color: transparent;
   color: var(--white-background);
   height: 40px;
   width: 264px;
   border-radius: 4px;
   border: 1px solid var(--white-background);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  padding: 0 0 0 16px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  padding-left: 16px;
   font-size: 12px;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: 0.04em;
-  transition: border var(--my-transition-duration) var(--my-transition-timing-function);
 }
 
 .subscribe-input::placeholder {
   color: var(--white-background);
-  font-size: 12px;
-  line-height: 2;
-  letter-spacing: 0.04em;
-}
-
-.subscribe-input:focus-within {
-  border: 1px solid var(--primary-brand);
 }
 
 .subscribe-btn {
@@ -586,7 +577,10 @@ body {
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14);
   transition: transform var(--my-transition-duration) var(--my-transition-timing-function);
+  padding: 72px 24px 24px 24px;
 }
+
+/* ===============CLOSE_BUTTON============= */
 .modal-close-button {
   position: absolute;
   top: 24px;
@@ -620,11 +614,14 @@ body {
 .modal-close-button:focus .close-button-svg {
   fill: var(--white-background);
 }
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  padding: 72px 24px 24px 24px;
+/* =====================FORM=========================== */
+.modal-descr {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02px;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 16px;
 }
 
 .modal-label,
@@ -634,14 +631,38 @@ body {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
+}
+
+.modal-label,
+.modal-label-checkbox,
+.modal-input {
   color: var(--subtle-text);
 }
+
+/* ===============INPUT+TEXTAREA============= */
+.modal-input-wrapper {
+  margin-bottom: 8px;
+}
+
 .modal-label {
+  display: block;
   margin-bottom: 4px;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+  padding-left: 38px;
 }
 
 .modal-input,
 .modal-textarea {
+  background-color: transparent;
+  outline: transparent;
   border-radius: 4px;
   border: 1px solid var(--modal-overlay);
   transition: border-color var(--my-transition-duration) var(--my-transition-timing-function);
@@ -652,30 +673,6 @@ body {
   border-color: var(--primary-brand);
 }
 
-.modal-input:focus-within + .modal-input-icon {
-  fill: var(--primary-brand);
-}
-
-.modal-input {
-  height: 40px;
-  padding-left: 38px;
-}
-.modal-feedback-text {
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02px;
-  text-align: center;
-  color: var(--dark);
-  margin-bottom: 16px;
-}
-
-.input-with-icon {
-  position: relative;
-  margin-bottom: 8px;
-}
-.input-with-icon .modal-input {
-  width: 100%;
-}
 .modal-input-icon {
   position: absolute;
   left: 16px;
@@ -684,64 +681,71 @@ body {
   fill: var(--dark);
   transition: fill var(--my-transition-duration) var(--my-transition-timing-function);
 }
+
+.modal-input:focus-within + .modal-input-icon {
+  fill: var(--primary-brand);
+}
+
+.modal-textarea-wrapper {
+  margin-bottom: 16px;
+}
+
 .modal-textarea {
+  display: block;
+  color: var(--modal-overlay);
+  width: 100%;
   resize: none;
   padding: 8px 16px;
-  outline: none;
   height: 120px;
-  margin-bottom: 16px;
 }
 
 .modal-textarea::placeholder {
   color: var(--modal-overlay);
 }
+/* ===============CHECKBOX============= */
+.modal-label[for='user-privacy'] {
+  margin-bottom: 0;
+}
 
-.modal-label-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+.modal-checkbox-wrapper {
   margin-bottom: 24px;
 }
 
-input[type='checkbox'] {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-input[type='checkbox']:checked + .checkbox-field {
-  background-color: var(--primary-brand);
-  border-style: none;
-}
-.checkbox-field {
+.modal-checkbox-span {
   width: 16px;
   height: 16px;
   border-radius: 2px;
   border: 1px solid var(--modal-overlay);
-
-  display: flex;
+  fill: transparent;
+  transition: background-color var(--my-transition-duration)
+      var(--my-transition-timing-function),
+    border var(--my-transition-duration) var(--my-transition-timing-function),
+    fill var(--my-transition-duration) var(--my-transition-timing-function);
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: background-color var(--my-transition-duration)
-    var(--my-transition-timing-function);
-}
-input[type='checkbox']:checked + .checkbox-field .modal-checkbox-icon {
-  opacity: 1;
 }
 
-.modal-checkbox-icon {
+.modal-checkbox-input:checked + .modal-label .modal-checkbox-span {
+  background-color: var(--primary-brand);
+  border-style: none;
   fill: var(--light);
-  opacity: 0;
-  transition: opacity var(--my-transition-duration) var(--my-transition-timing-function);
 }
 
-.checkbox-link {
+/* .modal-checkbox-icon {
+  fill: inherit;
+} */
+
+.modal-checkbox-link {
   color: var(--primary-brand);
 }
 
+/* ===============BUTTON============= */
 .modal-send-btn {
+  display: block;
   min-width: 169px;
-  align-self: center;
-  padding: 16px 0;
+  height: 56px;
+  padding: 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
 }
